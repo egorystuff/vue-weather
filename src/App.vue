@@ -5,7 +5,7 @@ import TheHeader from './components/TheHeader.vue'
 
 <template>
   <TheHeader />
-  <!-- <TheHome /> -->
+  <TheHome />
 </template>
 
 <style scoped></style>

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import icons from '../assets/icons/icons'
+import { ICONS } from '../assets/icons/icons'
 import type { IconName } from '../types'
 
 defineProps<{ name: IconName }>()
 </script>
 
 <template>
-  <component :is="icons[name]" :class="$attrs.class || 'h-5'" />
+  <svg :class="$attrs.class || 'w-20 h-20'" v-html="ICONS[name]"></svg>
 </template>

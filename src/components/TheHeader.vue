@@ -1,9 +1,15 @@
 <script setup lang="ts">
+import { IconName } from '@/types'
 import BaseIcon from './BaseIcon.vue'
 </script>
 
 <template>
-  <BaseIcon name="menu" class="w-5 h-5" />
-  <div>Vue Weather</div>
-  <div>header</div>
+  <div>
+    <div>
+      <BaseIcon :name="IconName.LOGO_ICON" />
+    </div>
+
+    <div class="text-2xl">Vue Weather</div>
+  </div>
+  <div>right</div>
 </template>
