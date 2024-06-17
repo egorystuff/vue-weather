@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import { IconName } from '@/types'
 import BaseIcon from './BaseIcon.vue'
-
-const onChangeSelect = (event) => {
-  filters.sortBy = event.target.value
-}
 </script>
 
 <template>
@@ -17,10 +13,7 @@ const onChangeSelect = (event) => {
     <div class="flex items-center gap-4 p-2">
       <BaseIcon viewBox="0 0 35 35" class="cursor-pointer w-8 h-8" :name="IconName.CHANGE_THEME" />
       <div>
-        <select
-          @change="onChangeSelect"
-          class="border-2 border-blue-200 bg-blue-200 py-2 px-4 rounded-xl outline-none"
-        >
+        <select class="border-2 border-blue-200 bg-blue-200 py-2 px-4 rounded-xl outline-none">
           <option value="name">By name</option>
           <option value="price">By price (cheap)</option>
         </select>
