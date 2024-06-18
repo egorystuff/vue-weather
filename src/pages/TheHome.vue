@@ -5,7 +5,7 @@ import TheThisDayInfo from '../components/TheThisDayInfo.vue'
 
 <template>
   <div class="flex justify-between items-center m-2 mt-6">
-    <TheThisDay />
-    <TheThisDayInfo />
+    <TheThisDay class="hover:scale-105 transition" />
+    <TheThisDayInfo class="hover:scale-105 transition" />
   </div>
 </template>

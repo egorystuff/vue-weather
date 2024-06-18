@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: rgb(241 245 249);
+.light {
+  --primary-color: 71, 147, 255;
+  --background: 245, 245, 245;
+  --component: 255, 255, 255;
+  --card: 71, 147, 255;
+  --text: 0, 0, 0;
+
+  background: rgba(var(--background));
+}
+
+.dark {
+  --primary-color: 71, 147, 255;
+  --background: 13, 17, 23;
+  --component: 79, 79, 79;
+  --card: 46, 48, 53;
+  --text: 245, 245, 245;
+
+  background: rgba(var(--background));
 }

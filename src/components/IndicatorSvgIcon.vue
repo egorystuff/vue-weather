@@ -6,5 +6,5 @@ const props = defineProps<{ name: IndicatorsType }>()
 </script>
 
 <template>
-  <svg :class="$attrs.class || 'w-6 h-6'" v-html="INDICATORS[props.name]"></svg>
+  <svg :class="$attrs.class || 'w-4 h-4'" v-html="INDICATORS[props.name]"></svg>
 </template>

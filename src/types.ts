@@ -15,4 +15,5 @@ export interface Item {
   iconId: IndicatorsType
   name: string
   value: string
+  boxView?: string
 }
