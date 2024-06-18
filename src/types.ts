@@ -4,7 +4,7 @@ export enum IconName {
   SUN = 'sun'
 }
 
-export enum Indicators {
+export enum IndicatorsType {
   TEMP = 'temp',
   PRESSURE = 'pressure',
   PREC = 'precipitation',
@@ -12,7 +12,7 @@ export enum Indicators {
 }
 
 export interface Item {
-  iconId: string
+  iconId: IndicatorsType
   name: string
   value: string
 }

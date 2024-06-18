@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { INDICATORS } from '../assets/icons/icons'
-import type { Indicators } from '../types'
+import type { IndicatorsType } from '../types'
 
-defineProps<{ name: Indicators }>()
+const props = defineProps<{ name: IndicatorsType }>()
 </script>
 
 <template>
-  <svg :class="$attrs.class || 'w-20 h-20'" v-html="INDICATORS[name]"></svg>
+  <svg :class="$attrs.class || 'w-6 h-6'" v-html="INDICATORS[props.name]"></svg>
 </template>
