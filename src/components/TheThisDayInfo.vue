@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { IndicatorsType, type Item } from '@/types'
+import { IndicatorsType, type ItemType } from '@/types'
 import ThisDayItem from './ThisDayItem.vue'
 
-const items: Array<Item> = [
+const items: Array<ItemType> = [
   {
     iconId: IndicatorsType.TEMP,
     name: 'Температура',

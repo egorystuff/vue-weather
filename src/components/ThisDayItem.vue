@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { type Item } from '@/types'
+import { type ItemType } from '@/types'
 import IndicatorSvgIcon from './IndicatorSvgIcon.vue'
 
-const { item } = defineProps<{ item: Item }>()
+const { item } = defineProps<{ item: ItemType }>()
 </script>
 
 <template>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import TheThisDay from '../components/TheThisDay.vue'
 import TheThisDayInfo from '../components/TheThisDayInfo.vue'
+import TheDays from '../components/TheDays.vue'
 </script>
 
 <template>
@@ -8,4 +9,6 @@ import TheThisDayInfo from '../components/TheThisDayInfo.vue'
     <TheThisDay class="hover:scale-105 transition" />
     <TheThisDayInfo class="hover:scale-105 transition" />
   </div>
+
+  <TheDays />
 </template>
