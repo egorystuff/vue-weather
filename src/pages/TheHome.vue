@@ -6,9 +6,11 @@ import TheDays from '../components/TheDays.vue'
 
 <template>
   <div class="flex justify-between items-center m-2 mt-6">
-    <TheThisDay class="hover:scale-105 transition" />
-    <TheThisDayInfo class="hover:scale-105 transition" />
+    <TheThisDay />
+    <TheThisDayInfo />
   </div>
 
-  <TheDays />
+  <div>
+    <TheDays class="m-2 mt-6" />
+  </div>
 </template>

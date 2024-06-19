@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import { IconName, type DaysType } from '@/types'
+import { WeatherIconsType, type DaysType } from '@/types'
 import TheCard from './TheCard.vue'
+import TheTabs from './TheTabs.vue'
 
 const days: Array<DaysType> = [
   {
     day: 'Сегодня',
     day_info: '28 авг',
-    icon_id: IconName.SUN,
+    icon_id: WeatherIconsType.SUN,
     temp_day: '+18',
     temp_night: '+15',
     info: 'Облачно'
@@ -14,7 +15,7 @@ const days: Array<DaysType> = [
   {
     day: 'Завтра',
     day_info: '29 авг',
-    icon_id: IconName.SMALL_RAIN_SUN,
+    icon_id: WeatherIconsType.FOG,
     temp_day: '+18',
     temp_night: '+15',
     info: 'небольшой дождь и солнце'
@@ -22,7 +23,7 @@ const days: Array<DaysType> = [
   {
     day: 'Ср',
     day_info: '30 авг',
-    icon_id: IconName.SMALL_RAIN,
+    icon_id: WeatherIconsType.MOSTLYCLOUDY,
     temp_day: '+18',
     temp_night: '+15',
     info: 'небольшой дождь'
@@ -30,7 +31,7 @@ const days: Array<DaysType> = [
   {
     day: 'Чт',
     day_info: '28 авг',
-    icon_id: IconName.MAINLY_CLOUDY,
+    icon_id: WeatherIconsType.MOSTLYSUN,
     temp_day: '+18',
     temp_night: '+15',
     info: 'Облачно'
@@ -38,7 +39,7 @@ const days: Array<DaysType> = [
   {
     day: 'Пт',
     day_info: '28 авг',
-    icon_id: IconName.RAIN,
+    icon_id: WeatherIconsType.RAIN,
     temp_day: '+18',
     temp_night: '+15',
     info: 'Облачно'
@@ -46,7 +47,7 @@ const days: Array<DaysType> = [
   {
     day: 'Сб',
     day_info: '28 авг',
-    icon_id: IconName.SUN,
+    icon_id: WeatherIconsType.SLEET,
     temp_day: '+18',
     temp_night: '+15',
     info: 'Облачно'
@@ -54,7 +55,7 @@ const days: Array<DaysType> = [
   {
     day: 'Вс',
     day_info: '28 авг',
-    icon_id: IconName.SUN,
+    icon_id: WeatherIconsType.SUN,
     temp_day: '+18',
     temp_night: '+15',
     info: 'Облачно'
@@ -63,7 +64,12 @@ const days: Array<DaysType> = [
 </script>
 
 <template>
-  <div>
-    <TheCard v-for="day in days" :key="day.day" :day="day" />
+  <div class="m-2 mt-16">
+    <TheTabs />
+    <div
+      class="flex justify-between flex-wrap bg-component border border-component shadow-lg rounded-xl p-4"
+    >
+      <TheCard v-for="day in days" :key="day.day" :day="day" />
+    </div>
   </div>
 </template>

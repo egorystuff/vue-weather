@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { IconName } from '@/types'
-import BaseIcon from './BaseIcon.vue'
+import { WeatherIconsType } from '@/types'
+import BaseWeatherIcon from './BaseWeatherIcon.vue'
 </script>
 
 <template>
@@ -13,7 +13,7 @@ import BaseIcon from './BaseIcon.vue'
         <div class="text-text text-3xl mt-2">Сегодня</div>
       </div>
       <div>
-        <BaseIcon viewBox="0 0 119 119" class="w-20 h-20" :name="IconName.SUN" />
+        <BaseWeatherIcon :class="'weatherIcon w-20 h-20'" :name="WeatherIconsType.SUN" />
       </div>
     </div>
 
