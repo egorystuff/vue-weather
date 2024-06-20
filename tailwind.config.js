@@ -9,7 +9,8 @@ export default {
         background: 'rgba(var(--background))',
         component: 'rgba(var(--component))',
         card: 'rgba(var(--card),0.2)',
-        text: 'rgba(var(--text))'
+        text: 'rgba(var(--text))',
+        popup: 'rgba(var(--popup),0.9)'
       }
     }
   },
