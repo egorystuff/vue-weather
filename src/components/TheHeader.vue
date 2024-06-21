@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { IconName } from '@/types'
 import BaseIcon from './BaseIcon.vue'
+import TheSearchInput from './TheSearchInput.vue'
+import TheSearchResult from './TheSearchResult.vue'
 
 defineEmits<{ (event: 'changeTheme'): void }>()
 </script>
@@ -19,14 +21,9 @@ defineEmits<{ (event: 'changeTheme'): void }>()
         class="cursor-pointer w-8 h-8"
         :name="IconName.CHANGE_THEME"
       />
-      <div>
-        <BaseIcon viewBox="0 0 16 16" class="absolute w-6 h-6" :name="IconName.SEARCH" />
-
-        <input
-          class="bg-component border-2 border-component py-2 px-4 rounded-xl outline-none"
-          type="text"
-          placeholder="Введите город"
-        />
+      <div class="relative flex z-10">
+        <TheSearchInput />
+        <TheSearchResult />
       </div>
     </div>
   </header>
