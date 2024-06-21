@@ -1,7 +1,8 @@
 export enum IconName {
   LOGO_ICON = 'logoIcon',
   CHANGE_THEME = 'changeTheme',
-  CLOSE = 'close'
+  CLOSE = 'close',
+  SEARCH = 'search'
 }
 
 export enum IndicatorsType {

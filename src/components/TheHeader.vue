@@ -20,10 +20,13 @@ defineEmits<{ (event: 'changeTheme'): void }>()
         :name="IconName.CHANGE_THEME"
       />
       <div>
-        <select class="bg-component border-2 border-component py-2 px-4 rounded-xl outline-none">
-          <option value="name">By name</option>
-          <option value="price">By price (cheap)</option>
-        </select>
+        <BaseIcon viewBox="0 0 16 16" class="absolute w-6 h-6" :name="IconName.SEARCH" />
+
+        <input
+          class="bg-component border-2 border-component py-2 px-4 rounded-xl outline-none"
+          type="text"
+          placeholder="Введите город"
+        />
       </div>
     </div>
   </header>

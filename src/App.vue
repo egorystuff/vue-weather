@@ -6,16 +6,18 @@ import TheHome from './pages/TheHome.vue'
 import TheHeader from './components/TheHeader.vue'
 import ThePopup from './components/ThePopup.vue'
 
-// const fetchItems = async () => {
-//   try {
-//     const { data } = await axios.get(
-//       `https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&appid=9437c51ae0fde293b89674bf3d56b8d2`
-//     )
-//     console.log(data)
-//   } catch (error) {
-//     console.error(error)
-//   }
-// }
+const APIKey = '7d8aeec9c3044f21849121348242106'
+
+const fetchItems = async () => {
+  try {
+    const { data } = await axios.get(
+      `http://api.weatherapi.com/v1/current.json?key=${APIKey}&q=London&days=7`
+    )
+    console.log(data)
+  } catch (error) {
+    console.error(error)
+  }
+}
 
 onMounted(() => {
   fetchItems()
