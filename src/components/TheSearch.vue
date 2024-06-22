@@ -21,7 +21,7 @@ const cityItems: string[] = [
 ]
 
 const query: Ref<string> = ref('')
-const isSearchInputFocused: Ref<boolean> = ref(false)
+const isSearchResultsShown: Ref<boolean> = ref(false)
 
 const results = computed(() => {
   if (!query.value) return []
@@ -31,16 +31,14 @@ const results = computed(() => {
   )
 })
 
-const isSearchResultsShown = computed(() => isSearchInputFocused.value && results.value.length)
+const toggleSearchResults = (isSearchInputActive: boolean) => {
+  isSearchResultsShown.value = isSearchInputActive && results.value.length > 0
+}
 </script>
 
 <template>
   <div class="relative flex z-10">
-    <TheSearchInput
-      v-model:query="query"
-      @focus="isSearchInputFocused = true"
-      @blur="isSearchInputFocused = false"
-    />
+    <TheSearchInput v-model:query="query" @change-state="toggleSearchResults" />
     <TheSearchResult v-show="isSearchResultsShown" :results="results" />
   </div>
 </template>
