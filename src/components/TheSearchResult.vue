@@ -1,20 +1,5 @@
 <script setup lang="ts">
-const results = [
-  'London',
-  'Minsk',
-  'Berlin',
-  'Moscow',
-  'New York',
-  'Mexico',
-  'Istanbul',
-  'Paris',
-  'Detroit',
-  'Pekin',
-  'Tokyo',
-  'Seoul',
-  'Warsaw',
-  'Vilnius'
-]
+defineProps<{ results: string[] }>()
 </script>
 
 <template>

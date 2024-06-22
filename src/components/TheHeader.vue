@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { IconName } from '@/types'
 import BaseIcon from './BaseIcon.vue'
-import TheSearchInput from './TheSearchInput.vue'
-import TheSearchResult from './TheSearchResult.vue'
+import TheSearch from './TheSearch.vue'
 
 defineEmits<{ (event: 'changeTheme'): void }>()
 </script>
@@ -21,10 +20,8 @@ defineEmits<{ (event: 'changeTheme'): void }>()
         class="cursor-pointer w-8 h-8"
         :name="IconName.CHANGE_THEME"
       />
-      <div class="relative flex z-10">
-        <TheSearchInput />
-        <TheSearchResult />
-      </div>
+
+      <TheSearch />
     </div>
   </header>
 </template>

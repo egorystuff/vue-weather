@@ -1,20 +1,19 @@
 <script setup lang="ts">
 import { ref, type Ref } from 'vue'
-import debounce from 'lodash.debounce'
-
 import { IconName } from '@/types'
-import { fetchWeatherData } from '@/API/fetchWeatherData'
-
 import BaseIcon from './BaseIcon.vue'
 
-const city: Ref<string> = ref('')
+// const city: Ref<string> = ref('')
 
-const onChangeSearchInput = (event: any) => {
-  event.preventDefault()
-  city.value = event.target.value.trim()
-  console.log(city.value)
-  fetchWeatherData(city.value)
-}
+defineProps<{ query: string }>()
+
+defineEmits<{ (event: 'update:query', value: string): void }>()
+
+// const onChangeSearchInput = (event: any) => {
+//   event.preventDefault()
+//   city.value = event.target.value.trim()
+//   console.log(city.value)
+// }
 </script>
 
 <template>
@@ -26,13 +25,22 @@ const onChangeSearchInput = (event: any) => {
       :name="IconName.SEARCH"
     />
 
-    <form>
-      <input
-        @submit="onChangeSearchInput"
-        class="bg-component border-2 text-text border-component py-2 px-4 pl-12 w-full rounded-xl outline-none"
-        type="text"
-        placeholder="Search city..."
+    <input
+      @input="$emit('update:query', ($event.target as HTMLInputElement).value)"
+      v-bind="$attrs"
+      :value="query"
+      class="bg-component border-2 text-text border-component py-2 px-4 pl-12 w-full rounded-xl outline-none"
+      type="text"
+      placeholder="Search city..."
+    />
+
+    <button v-show="query" @click="$emit('update:query', '')">
+      <BaseIcon
+        viewBox="0 0 18 18"
+        fill="none"
+        class="absolute w-5 h-5 top-3 right-2"
+        :name="IconName.CLOSE"
       />
-    </form>
+    </button>
   </div>
 </template>
