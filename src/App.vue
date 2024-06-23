@@ -1,15 +1,17 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, provide } from 'vue'
 import { changeTheme, storage, theme } from './changeTheme'
-import { fetchWeatherData } from './API/fetchWeatherData'
+import { cityWeatherData, fetchWeatherData } from './API/fetchWeatherData'
 import TheHome from './pages/TheHome.vue'
 import TheHeader from './components/TheHeader.vue'
 import ThePopup from './components/ThePopup.vue'
 
 onMounted(() => {
-  // fetchWeatherData()
+  fetchWeatherData('Minsk')
   theme.value = storage.getItem('theme') ? storage.getItem('theme') : 'light'
 })
+
+provide('cityWeatherData', cityWeatherData)
 </script>
 
 <template>

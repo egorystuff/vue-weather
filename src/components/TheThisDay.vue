@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { WeatherIconsType } from '@/types'
 import BaseWeatherIcon from './BaseWeatherIcon.vue'
+
+const props = defineProps<{
+  data: any
+}>()
 </script>
 
 <template>
@@ -9,7 +13,7 @@ import BaseWeatherIcon from './BaseWeatherIcon.vue'
   >
     <div class="flex justify-between items-center p-2">
       <div>
-        <div class="text-primary text-6xl font-medium">20&deg;C</div>
+        <div class="text-primary text-6xl font-medium">{{ props.data }}&deg;C</div>
         <div class="text-text text-3xl mt-2">Сегодня</div>
       </div>
       <div>

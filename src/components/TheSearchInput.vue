@@ -3,7 +3,6 @@ import { ref, type Ref } from 'vue'
 import { IconName } from '@/types'
 import BaseIcon from './BaseIcon.vue'
 
-// const city: Ref<string> = ref('')
 const isActive: Ref<boolean> = ref(false)
 const inputRef: Ref<HTMLInputElement | null> = ref(null)
 
@@ -14,29 +13,23 @@ const emit = defineEmits<{
   (event: 'change-state', state: boolean): void
 }>()
 
-const updateQuery = (value: any) => {
+const updateQuery = (value: any): void => {
   emit('update:query', value)
   setState(value)
 }
 
-const setState = (state: boolean) => {
+const setState = (state: boolean): void => {
   isActive.value = state
   emit('change-state', state)
 }
 
-const handleEcs = () => {
+const handleEcs = (): void => {
   if (isActive.value) {
     setState(false)
   } else {
     inputRef.value?.blur()
   }
 }
-
-// const onChangeSearchInput = (event: any) => {
-//   event.preventDefault()
-//   city.value = event.target.value.trim()
-//   console.log(city.value)
-// }
 </script>
 
 <template>
@@ -51,12 +44,11 @@ const handleEcs = () => {
     <input
       @input="updateQuery(($event.target as HTMLInputElement).value)"
       @focus="setState(true)"
-      @blur="setState(false)"
       @keyup.esc="handleEcs"
-      @click="setState(true)"
+      @click.stop="setState(true)"
       ref="inputRef"
       :value="query"
-      class="bg-component border-2 text-text border-component py-2 px-4 pl-12 w-full rounded-xl outline-none"
+      class="bg-component border-2 text-text border-component py-2 px-4 pl-12 w-full rounded-l-xl outline-none"
       type="text"
       placeholder="Search city..."
     />

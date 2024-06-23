@@ -1,5 +1,18 @@
 <script setup lang="ts">
-defineProps<{ results: string[] }>()
+import { computed, type ComputedRef } from 'vue'
+
+const props = defineProps<{ results: string[]; activeResultId: number | null }>()
+
+const itemClasses: ComputedRef<(id: number) => string[]> = computed(() => (id: number) => {
+  return [
+    id === props.activeResultId ? 'bg-card' : 'hover:bg-card',
+    'text-text',
+    'px-3',
+    'py-1',
+    'select-none',
+    'truncate'
+  ]
+})
 </script>
 
 <template>
@@ -8,17 +21,15 @@ defineProps<{ results: string[] }>()
   >
     <ul>
       <li
-        v-for="result in results"
-        :key="result"
-        class="hover:bg-gray-100 text-text px-3 py-1 select-none truncate"
+        v-for="(text, id) in results"
+        :key="text"
+        :class="itemClasses(id)"
+        @mouseenter="$emit('search-result-mouseenter', id)"
+        @mouseleave="$emit('search-result-mouseleave')"
+        @click.stop="$emit('search-result-click', id)"
       >
-        {{ result }}
+        {{ text }}
       </li>
     </ul>
-    <a
-      href="#"
-      class="w-full inline-block text-right text-xs italic text-gray-500 hover:text-black pr-2"
-      >Report search predictions</a
-    >
   </div>
 </template>
