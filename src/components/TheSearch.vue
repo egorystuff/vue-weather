@@ -1,25 +1,11 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref, type Ref } from 'vue'
+import { inject, onBeforeUnmount, onMounted, ref, type Ref } from 'vue'
 import TheSearchInput from './TheSearchInput.vue'
 import TheSearchResult from './TheSearchResult.vue'
 import { fetchWeatherData } from '@/API/fetchWeatherData'
+import { cityItems } from '@/cityItems'
 
-const cityItems: string[] = [
-  'London',
-  'Minsk',
-  'Berlin',
-  'Moscow',
-  'New York',
-  'Mexico',
-  'Istanbul',
-  'Paris',
-  'Detroit',
-  'Pekin',
-  'Tokyo',
-  'Seoul',
-  'Warsaw',
-  'Vilnius'
-]
+const { selectCity } = inject<any>('weatherData')
 
 const query: Ref<string> = ref('')
 const isSearchResultsShown: Ref<boolean> = ref(false)
@@ -78,6 +64,7 @@ const selectSearchResult = (searchResultId: number): void => {
 
 const handleShowCity = (): void => {
   if (query.value) {
+    selectCity.value = query.value
     fetchWeatherData(query.value)
     toggleSearchResults(false)
     query.value = ''

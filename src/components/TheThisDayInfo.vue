@@ -1,12 +1,19 @@
 <script setup lang="ts">
 import { IndicatorsType, type ItemType } from '@/types'
 import ThisDayItem from './ThisDayItem.vue'
+import { watch } from 'vue'
+
+const props = defineProps<{ weatherData: any }>()
 
 const items: Array<ItemType> = [
   {
     iconId: IndicatorsType.TEMP,
     name: 'Температура',
-    value: '20° - ощущается как 17°',
+    value:
+      props.weatherData.current?.temp_c +
+      '° - ощущается как ' +
+      props.weatherData.current?.feelslike_c +
+      '°',
     boxView: '-2 0 25 25'
   },
   {
@@ -28,6 +35,8 @@ const items: Array<ItemType> = [
     boxView: '-1 -2 22 22'
   }
 ]
+
+watch(props.weatherData, () => {})
 </script>
 
 <template>
