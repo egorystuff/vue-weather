@@ -28,7 +28,7 @@ export enum WeatherIconsType {
 export interface ItemType {
   iconId: IndicatorsType
   name: string
-  value: string
+  value: string | null
   boxView?: string
 }
 

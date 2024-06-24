@@ -1,42 +1,6 @@
 <script setup lang="ts">
-import { IndicatorsType, type ItemType } from '@/types'
+import { IndicatorsItems } from '@/API/updateIndicatorsItems'
 import ThisDayItem from './ThisDayItem.vue'
-import { watch } from 'vue'
-
-const props = defineProps<{ weatherData: any }>()
-
-const items: Array<ItemType> = [
-  {
-    iconId: IndicatorsType.TEMP,
-    name: 'Температура',
-    value:
-      props.weatherData.current?.temp_c +
-      '° - ощущается как ' +
-      props.weatherData.current?.feelslike_c +
-      '°',
-    boxView: '-2 0 25 25'
-  },
-  {
-    iconId: IndicatorsType.PRESSURE,
-    name: 'Давление',
-    value: '765 мм ртутного столба - нормальное',
-    boxView: '0 0 19 19'
-  },
-  {
-    iconId: IndicatorsType.PREC,
-    name: 'Осадки',
-    value: 'Переменная облачность, без осадков',
-    boxView: '5 1 25 25'
-  },
-  {
-    iconId: IndicatorsType.WIND,
-    name: 'Ветер',
-    value: '3 м/с юго-запад - легкий ветер',
-    boxView: '-1 -2 22 22'
-  }
-]
-
-watch(props.weatherData, () => {})
 </script>
 
 <template>
@@ -46,6 +10,6 @@ watch(props.weatherData, () => {})
     <div class="flex justify-between items-center p-2"></div>
     <img class="absolute right-0 top-0" src="../assets/images/cloud.png" alt="cloud" />
 
-    <ThisDayItem v-for="item in items" :key="item.iconId" :item="item" />
+    <ThisDayItem v-for="item in IndicatorsItems" :key="item.iconId" :item="item" />
   </div>
 </template>

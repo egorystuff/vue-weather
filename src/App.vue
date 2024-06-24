@@ -5,17 +5,20 @@ import { cityWeatherData, fetchWeatherData } from './API/fetchWeatherData'
 import TheHome from './pages/TheHome.vue'
 import TheHeader from './components/TheHeader.vue'
 import ThePopup from './components/ThePopup.vue'
+import { updateIndicatorsItems } from './API/updateIndicatorsItems'
 
 const selectCity: Ref<string> = ref('')
 
 onMounted(async () => {
-  await fetchWeatherData('Минск')
   theme.value = storage.getItem('theme') ? storage.getItem('theme') : 'light'
+  console.log(cityWeatherData.value)
+  await fetchWeatherData('Минск')
+  updateIndicatorsItems(cityWeatherData.value)
 })
 
-watch(selectCity, () => {
-  fetchWeatherData(selectCity.value)
-  console.log(cityWeatherData.value)
+watch(selectCity, async () => {
+  await fetchWeatherData(selectCity.value)
+  updateIndicatorsItems(cityWeatherData.value)
 })
 
 provide('weatherData', { cityWeatherData, selectCity })

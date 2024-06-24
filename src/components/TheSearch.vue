@@ -12,7 +12,7 @@ const isSearchResultsShown: Ref<boolean> = ref(false)
 const activeSearchResultId: Ref<number | null> = ref(null)
 const results: Ref<string[]> = ref([])
 
-const updateSearchResults = () => {
+const updateSearchResults = (): void => {
   if (query.value === '') {
     results.value = []
   } else {
