@@ -17,7 +17,7 @@ defineEmits<{ (event: 'changeTheme'): void }>()
       <BaseIcon
         @click="$emit('changeTheme')"
         viewBox="0 0 35 35"
-        class="cursor-pointer w-8 h-8"
+        class="cursor-pointer w-8 h-8 hover:scale-110 transition"
         :name="IconName.CHANGE_THEME"
       />
 

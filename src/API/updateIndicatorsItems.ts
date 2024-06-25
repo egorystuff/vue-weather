@@ -1,5 +1,6 @@
 import { IndicatorsType, type ItemType } from '@/types'
 import { ref, type Ref } from 'vue'
+import { conditions } from './conditions'
 
 export const IndicatorsItems: Ref<ItemType[]> = ref([
   {
@@ -29,10 +30,16 @@ export const IndicatorsItems: Ref<ItemType[]> = ref([
 ])
 
 export const updateIndicatorsItems = (data: any): void => {
+  const isDay = data.current?.is_day
+  const weatherDay = conditions.find((el) => el.code === data.current?.condition?.code)
+  const infoDay = isDay
+    ? weatherDay?.languages[23]?.day_text
+    : weatherDay?.languages[23]?.night_text
+
   const newIndicatorsItems: string[] = [
     data.current?.temp_c + '° - ощущается как ' + data.current?.feelslike_c + '°',
-    data.current?.pressure_mb + ' мм ртутного столба',
-    'Переменная облачность, без осадков',
+    Math.round(data.current?.pressure_mb / 1.333) + ' мм ртутного столба',
+    infoDay ?? '',
     ((data.current?.wind_kph * 1000) / 3600).toFixed(1) + ' м/с '
   ]
 

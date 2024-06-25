@@ -7,7 +7,7 @@ const { day } = defineProps<{ day: DaysType }>()
 
 <template>
   <div
-    class="bg-card rounded-xl w-36 flex flex-col text-text text-md p-2 m-1 hover:shadow-lg hover:cursor-pointer transition"
+    class="bg-card rounded-xl w-36 flex flex-col text-text text-md p-2 m-1 hover:shadow-lg hover:cursor-pointer hover:scale-105 transition"
   >
     <div class="mb-2 text-lg">{{ day.day }}</div>
     <div class="mb-4 text-sm text-slate-400">{{ day.day_info }}</div>

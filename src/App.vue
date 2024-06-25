@@ -11,9 +11,9 @@ const selectCity: Ref<string> = ref('')
 
 onMounted(async () => {
   theme.value = storage.getItem('theme') ? storage.getItem('theme') : 'light'
-  console.log(cityWeatherData.value)
-  await fetchWeatherData('Минск')
+  await fetchWeatherData('Минск', 14)
   updateIndicatorsItems(cityWeatherData.value)
+  console.log(cityWeatherData.value)
 })
 
 watch(selectCity, async () => {
