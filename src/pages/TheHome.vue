@@ -10,7 +10,7 @@ const { cityWeatherData } = inject<any>('weatherData')
 <template>
   <div class="flex justify-between items-center m-2 mt-6">
     <TheThisDay :weatherData="cityWeatherData" />
-    <TheThisDayInfo :weatherData="cityWeatherData" />
+    <TheThisDayInfo />
   </div>
 
   <div>
