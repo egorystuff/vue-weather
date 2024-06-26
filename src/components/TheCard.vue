@@ -12,8 +12,6 @@ const { day } = defineProps<{ day: any }>()
     <div class="mb-2 text-lg">{{ day.day }}</div>
     <div class="mb-2">
       <img class="w-16 h-16" :src="day.icon_id" alt="Иконка погоды" />
-
-      <!-- <BaseWeatherIcon :class="'weatherIcon w-10 h-10'" :name="day.icon_id" /> -->
     </div>
     <div class="text-lg">{{ day.temp_day }}</div>
     <div class="text-sm text-slate-400">{{ day.temp_night }}</div>

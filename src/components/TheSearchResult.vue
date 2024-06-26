@@ -4,14 +4,7 @@ import { computed, type ComputedRef } from 'vue'
 const props = defineProps<{ results: string[]; activeResultId: number | null }>()
 
 const itemClasses: ComputedRef<(id: number) => string[]> = computed(() => (id: number) => {
-  return [
-    id === props.activeResultId ? 'bg-card' : 'hover:bg-card',
-    'text-text',
-    'px-3',
-    'py-1',
-    'select-none',
-    'truncate'
-  ]
+  return [id === props.activeResultId ? 'bg-card' : 'hover:bg-card', 'text-text', 'px-3', 'py-1']
 })
 </script>
 
@@ -19,7 +12,7 @@ const itemClasses: ComputedRef<(id: number) => string[]> = computed(() => (id: n
   <div
     class="absolute top-full w-full bg-component border border-component shadow-md rounded-xl mt-2"
   >
-    <ul>
+    <ul v-auto-animate="{ duration: 40 }">
       <li
         v-for="(text, id) in results"
         :key="text"

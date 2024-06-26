@@ -8,10 +8,11 @@ import TheTabs from './TheTabs.vue'
   <div class="m-2 mt-16">
     <TheTabs />
 
-    <div
+    <ul
+      v-auto-animate="{ duration: 100 }"
       class="grid gap-3 grid-cols-7 bg-component border border-component shadow-lg rounded-xl p-4"
     >
       <TheCard v-for="day in weatherForSomeDays" :key="day.id" :day="day" />
-    </div>
+    </ul>
   </div>
 </template>

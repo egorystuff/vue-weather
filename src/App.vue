@@ -34,11 +34,12 @@ provide('weatherData', { cityWeatherData, selectCity, selectDays })
 
 <template>
   <div class="relative">
-    <div :class="theme">
+    <div v-auto-animate :class="theme">
       <!-- <ThePopup /> -->
 
       <div class="bg-background container max-w-7xl min-h-screen mx-auto p-4 rounded-xl">
         <TheHeader @change-theme="changeTheme" />
+
         <TheHome />
       </div>
     </div>

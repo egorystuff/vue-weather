@@ -13,6 +13,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@formkit/auto-animate": "^0.8.2",
     "lodash.debounce": "^4.0.8",
     "vue": "^3.4.21",
     "vue-axios": "^3.5.2",
