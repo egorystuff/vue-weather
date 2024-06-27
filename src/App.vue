@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, provide, ref, watch, type Ref } from 'vue'
+import { onMounted, provide, ref, watch, type InjectionKey, type Ref } from 'vue'
 import { changeTheme, storage, theme } from './changeTheme'
 import { cityWeatherData, fetchWeatherData } from './API/fetchWeatherData'
 import { updateIndicatorsItems } from './API/updateIndicatorsItems'
@@ -29,7 +29,9 @@ watch(selectCity, async () => {
   updateWeatherForSomeDays(cityWeatherData.value)
 })
 
+// const key = Symbol() as InjectionKey<string>
 provide('weatherData', { cityWeatherData, selectCity, selectDays })
+// provide(key, 'weatherData', )
 </script>
 
 <template>

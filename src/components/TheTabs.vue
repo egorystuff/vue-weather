@@ -3,7 +3,7 @@ import { inject } from 'vue'
 
 const { selectDays } = inject<any>('weatherData')
 
-const tabs: Array<{ value: string }> = [
+const tabs: Array<{ name: string; value: number }> = [
   { name: 'На 1 день', value: 1 },
   { name: 'На 3 дня', value: 3 },
   { name: 'На 7 дней', value: 7 },
@@ -12,7 +12,6 @@ const tabs: Array<{ value: string }> = [
 
 const handleClickBtn = (event: Event) => {
   selectDays.value = Number((event.target as HTMLButtonElement).value)
-  console.log(selectDays.value)
 }
 </script>
 

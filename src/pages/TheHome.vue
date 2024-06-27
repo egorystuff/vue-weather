@@ -3,6 +3,7 @@ import TheThisDay from '../components/TheThisDay.vue'
 import TheThisDayInfo from '../components/TheThisDayInfo.vue'
 import TheDays from '../components/TheDays.vue'
 import { inject } from 'vue'
+import type { DataApi } from '@/API/fetchWeatherData'
 
 const { cityWeatherData } = inject<any>('weatherData')
 </script>

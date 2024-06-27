@@ -10,7 +10,7 @@ import TheTabs from './TheTabs.vue'
 
     <ul
       v-auto-animate="{ duration: 100 }"
-      class="grid gap-3 grid-cols-7 bg-component border border-component shadow-lg rounded-xl p-4"
+      class="flex flex-wrap justify-center justify-items-center items-center bg-component border border-component shadow-lg rounded-xl p-4"
     >
       <TheCard v-for="day in weatherForSomeDays" :key="day.id" :day="day" />
     </ul>

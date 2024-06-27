@@ -1,6 +1,7 @@
 import { IndicatorsType, type ItemType } from '@/types'
 import { ref, type Ref } from 'vue'
 import { conditions } from './conditions'
+import type { DataApi } from './fetchWeatherData'
 
 export const IndicatorsItems: Ref<ItemType[]> = ref([
   {

@@ -1,7 +1,4 @@
 <script setup lang="ts">
-// import { WeatherIconsType } from '@/types'
-// import BaseWeatherIcon from './BaseWeatherIcon.vue'
-
 defineProps<{ weatherData: any }>()
 </script>
 
@@ -15,7 +12,6 @@ defineProps<{ weatherData: any }>()
         <div class="text-text text-3xl mt-2">Сегодня</div>
       </div>
       <div>
-        <!-- <BaseWeatherIcon :class="'weatherIcon w-20 h-20'" :name="WeatherIconsType.SNOW" /> -->
         <img
           class="w-32 h-32"
           :src="weatherData.current?.condition.icon.replace(/64x64/g, '128x128')"

@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { type DaysType } from '@/types'
-import BaseWeatherIcon from './BaseWeatherIcon.vue'
 
-const { day } = defineProps<{ day: any }>()
+const { day } = defineProps<{ day: DaysType }>()
 </script>
 
 <template>
   <div
-    class="bg-card rounded-xl w-40 flex flex-col text-text text-md p-2 hover:shadow-lg hover:cursor-pointer hover:scale-105 transition"
+    class="bg-card rounded-xl w-40 flex flex-col text-text text-md p-4 m-1 hover:shadow-lg hover:cursor-pointer hover:scale-105 transition"
   >
     <div class="mb-2 text-lg">{{ day.day }}</div>
     <div class="mb-2">
