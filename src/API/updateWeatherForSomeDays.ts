@@ -20,5 +20,5 @@ export const updateWeatherForSomeDays = (data: any): void => {
     }
   })
 
-  console.log(weatherForSomeDays.value)
+  // console.log(weatherForSomeDays.value[0].id)
 }

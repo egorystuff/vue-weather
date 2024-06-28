@@ -1,7 +1,17 @@
 <script setup lang="ts">
 import { weatherForSomeDays } from '@/API/updateWeatherForSomeDays'
+import { inject } from 'vue'
 import TheCard from './TheCard.vue'
 import TheTabs from './TheTabs.vue'
+
+const { isShowPopup, activeIdPopup } = inject<any>('popup')
+
+const onCLickPopup = (index: number) => {
+  activeIdPopup.value = index
+  isShowPopup.value = true
+
+  console.log(activeIdPopup.value)
+}
 </script>
 
 <template>
@@ -12,7 +22,12 @@ import TheTabs from './TheTabs.vue'
       v-auto-animate="{ duration: 100 }"
       class="flex flex-wrap justify-center justify-items-center items-center bg-component border border-component shadow-lg rounded-xl p-4"
     >
-      <TheCard v-for="day in weatherForSomeDays" :key="day.id" :day="day" />
+      <TheCard
+        v-for="(day, index) in weatherForSomeDays"
+        :key="day.id"
+        :day="day"
+        @click="onCLickPopup(index)"
+      />
     </ul>
   </div>
 </template>
