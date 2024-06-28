@@ -9,8 +9,6 @@ const { isShowPopup, activeIdPopup } = inject<any>('popup')
 const onCLickPopup = (index: number) => {
   activeIdPopup.value = index
   isShowPopup.value = true
-
-  console.log(activeIdPopup.value)
 }
 </script>
 
@@ -20,7 +18,7 @@ const onCLickPopup = (index: number) => {
 
     <ul
       v-auto-animate="{ duration: 100 }"
-      class="flex flex-wrap justify-center justify-items-center items-center bg-component border border-component shadow-lg rounded-xl p-4"
+      class="flex flex-wrap justify-between justify-items-center items-center bg-component border border-component shadow-lg rounded-xl p-4"
     >
       <TheCard
         v-for="(day, index) in weatherForSomeDays"

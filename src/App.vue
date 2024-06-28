@@ -23,12 +23,14 @@ onMounted(async () => {
 watch(selectDays, async () => {
   await fetchWeatherData(selectCity.value, selectDays.value)
   updateWeatherForSomeDays(cityWeatherData.value)
+  activeIdPopup.value = null
 })
 
 watch(selectCity, async () => {
   await fetchWeatherData(selectCity.value, selectDays.value)
   updateIndicatorsItems(cityWeatherData.value)
   updateWeatherForSomeDays(cityWeatherData.value)
+  activeIdPopup.value = null
 })
 
 // const key = Symbol() as InjectionKey<string>
