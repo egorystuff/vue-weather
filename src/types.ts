@@ -1,7 +1,8 @@
 export enum IconName {
   LOGO_ICON = 'logoIcon',
   CHANGE_THEME = 'changeTheme',
-  CLOSE = 'close'
+  CLOSE = 'close',
+  SEARCH = 'search'
 }
 
 export enum IndicatorsType {
@@ -27,15 +28,15 @@ export enum WeatherIconsType {
 export interface ItemType {
   iconId: IndicatorsType
   name: string
-  value: string
+  value: string | null
   boxView?: string
 }
 
 export interface DaysType {
-  day: string
-  day_info: string
-  icon_id: WeatherIconsType
-  temp_day: string
-  temp_night: string
-  info: string
+  id?: number | undefined
+  day?: string | undefined
+  icon_id?: string | undefined
+  temp_day?: number | undefined
+  temp_night?: number | undefined
+  info?: string | undefined
 }

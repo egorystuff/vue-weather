@@ -2,6 +2,7 @@
 import TheThisDay from '../components/TheThisDay.vue'
 import TheThisDayInfo from '../components/TheThisDayInfo.vue'
 import TheDays from '../components/TheDays.vue'
+import type { DataApi } from '@/API/fetchWeatherData'
 </script>
 
 <template>
@@ -10,7 +11,5 @@ import TheDays from '../components/TheDays.vue'
     <TheThisDayInfo />
   </div>
 
-  <div>
-    <TheDays class="m-2 mt-6" />
-  </div>
+  <TheDays class="m-2 mt-6" />
 </template>

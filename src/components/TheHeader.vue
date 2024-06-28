@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { IconName } from '@/types'
 import BaseIcon from './BaseIcon.vue'
+import TheSearch from './TheSearch.vue'
 
 defineEmits<{ (event: 'changeTheme'): void }>()
 </script>
@@ -16,15 +17,11 @@ defineEmits<{ (event: 'changeTheme'): void }>()
       <BaseIcon
         @click="$emit('changeTheme')"
         viewBox="0 0 35 35"
-        class="cursor-pointer w-8 h-8"
+        class="cursor-pointer w-8 h-8 hover:scale-110 transition"
         :name="IconName.CHANGE_THEME"
       />
-      <div>
-        <select class="bg-component border-2 border-component py-2 px-4 rounded-xl outline-none">
-          <option value="name">By name</option>
-          <option value="price">By price (cheap)</option>
-        </select>
-      </div>
+
+      <TheSearch />
     </div>
   </header>
 </template>
